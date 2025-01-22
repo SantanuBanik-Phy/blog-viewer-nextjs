@@ -6,16 +6,16 @@ const Navbar = async () => {
   const user = await getUser();
 
   return (
-    <div className="bg-gray-200">
-      <div className="flex container justify-between mx-auto py-4 px-4">
-        <div>
+    <nav className="bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+        <div className="text-2xl font-bold">
           <h2>My Blog</h2>
         </div>
         <div>
-          <ul className="flex gap-6 items-center">
+          <ul className="flex gap-8 items-center">
             <li>
               <Link
-                className="btn border border-gray-500 px-2 py-1 rounded-md"
+                className="transition duration-300 hover:text-gray-200 hover:underline"
                 href="/"
               >
                 Home
@@ -23,7 +23,7 @@ const Navbar = async () => {
             </li>
             <li>
               <Link
-                className="btn border border-gray-500 px-2 py-1 rounded-md"
+                className="transition duration-300 hover:text-gray-200 hover:underline"
                 href="/profile"
               >
                 Profile
@@ -33,7 +33,7 @@ const Navbar = async () => {
               <>
                 <li>
                   <Link
-                    className="btn border border-gray-500 px-2 py-1 rounded-md"
+                    className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-md text-sm font-medium transition duration-300"
                     href="/api/auth/logout"
                   >
                     Logout
@@ -44,7 +44,7 @@ const Navbar = async () => {
               <>
                 <li>
                   <Link
-                    className="btn border border-gray-500 px-2 py-1 rounded-md"
+                    className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-sm font-medium transition duration-300"
                     href="/api/auth/login"
                   >
                     Login
@@ -52,7 +52,7 @@ const Navbar = async () => {
                 </li>
                 <li>
                   <Link
-                    className="btn border border-gray-500 px-2 py-1 rounded-md"
+                    className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-sm font-medium transition duration-300"
                     href="/api/auth/register"
                   >
                     Register
@@ -63,7 +63,7 @@ const Navbar = async () => {
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
