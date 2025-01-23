@@ -4,11 +4,11 @@ import { redirect } from "next/navigation";
 export const dynamic = "force-dynamic"; 
 
 const Profile = async () => {
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
-  console.log("User data:", user);
+  const { isAuthenticated } = getKindeServerSession();
+  const isUserAuthenticated = await isAuthenticated();
+  console.log("User authenticated:", isUserAuthenticated);
 
-  if (!user) {
+  if (!isUserAuthenticated) {
     redirect("/api/auth/login");
   }
 
@@ -19,7 +19,7 @@ const Profile = async () => {
           Welcome to Your Profile
         </h1>
         <p className="text-gray-700 text-lg leading-relaxed text-center mb-4">
-          Hello, <span className="font-semibold text-gray-800">{user.given_name || "User"}</span>!
+          Hello, <span className="font-semibold text-gray-800">User</span>!
         </p>
       </div>
     </div>
