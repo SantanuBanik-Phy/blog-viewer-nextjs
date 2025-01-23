@@ -1,12 +1,14 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic"; 
+
 const Profile = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+  console.log("User data:", user);
 
   if (!user) {
-    // Redirect to the login page if the user is not authenticated
     redirect("/api/auth/login");
   }
 
@@ -19,7 +21,6 @@ const Profile = async () => {
         <p className="text-gray-700 text-lg leading-relaxed text-center mb-4">
           Hello, <span className="font-semibold text-gray-800">{user.given_name || "User"}</span>!
         </p>
-       
       </div>
     </div>
   );
